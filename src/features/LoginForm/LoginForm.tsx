@@ -16,10 +16,10 @@ export const LoginForm: FC = () => {
           <h1 className={styles.header}>Sign in</h1>
           <div className={styles.inputContainer}>
             <Input placeholder="Email" />
-            <Input placeholder="Password" />
+            <Input type="password" placeholder="Password" />
           </div>
         </div>
-        <Button text="login" className={styles.button} />
+        <Button type="submit" text="login" className={styles.button} />
       </form>
     </div>
   );

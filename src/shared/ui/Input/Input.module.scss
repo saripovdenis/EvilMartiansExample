@@ -12,13 +12,17 @@
   background: #ededed;
   box-shadow: inset 5px 5px 12px #e1e1e1,
   inset -5px -5px 12px #f9f9f9;
-  transition: 0.3s;
+  transition: box-shadow 0.3s;
 
   &:focus {
-    outline-color: #ededed;
     background: #ededed;
     box-shadow: inset 5px 5px 12px #c5c5c5,
     inset -5px -5px 12px #ffffff;
-    transition: 0.3s;
+    transition: box-shadow 0.3s;
+  }
+
+  &[type=password]:not(:placeholder-shown) {
+    font-family: Verdana, sans-serif;
+    letter-spacing: 0.125em;
   }
 }

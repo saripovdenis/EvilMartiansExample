@@ -3,14 +3,14 @@ import cx from "classnames";
 
 import styles from "./Button.module.scss";
 
-type Props = {
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   text: string;
   className?: string;
 };
 
-export const Button: FC<Props> = ({ text, className }) => {
+export const Button: FC<Props> = ({ text, className, ...rest }) => {
   return (
-    <button type="button" className={cx(styles.root, className)}>
+    <button type="button" className={cx(styles.root, className)} {...rest}>
       {text}
     </button>
   );
