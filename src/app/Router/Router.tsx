@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import { RequireAuth } from "./RequireAuth";
-import { ApplicationPage, LoginPage } from "../../pages";
+import { ApplicationPage, LoginPage } from "@pages";
 
 export const Router = () => {
   return (
