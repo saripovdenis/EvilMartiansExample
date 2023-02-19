@@ -1,0 +1,18 @@
+.root {
+  width: 320px;
+  height: 400px;
+  border-radius: 50px;
+  background: #ededed;
+  box-shadow:  13px 13px 28px #cccccc,
+  -13px -13px 28px #ffffff;
+  padding: 10px 16px;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+}
+
+.header {
+  margin: auto;
+}

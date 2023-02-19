@@ -19,6 +19,7 @@
     "paths": {
       "@pages": ["pages"],
       "@shared/*": ["shared/*"],
+      "@features/*": ["features/*"]
     }
   },
   "include": ["src"],
