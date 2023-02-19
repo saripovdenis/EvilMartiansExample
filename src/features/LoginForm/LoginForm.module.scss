@@ -1,6 +1,6 @@
 .root {
   width: 368px;
-  height: 440px;
+  height: 424px;
   border-radius: 50px;
   background: #ededed;
   box-shadow:  13px 13px 28px #cccccc,
@@ -19,13 +19,13 @@
 .topContainer {
   width: 100%;
   display: grid;
-  gap: 48px;
+  gap: 40px;
 }
 
 .inputContainer {
   width: 100%;
   display: grid;
-  gap: 40px;
+  gap: 12px;
 }
 
 .header {
