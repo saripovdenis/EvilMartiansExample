@@ -19,4 +19,11 @@
     box-shadow: 4px 4px 12px #c5c5c5,
     -4px -4px 12px #ffffff;
   }
+
+  &:disabled {
+    box-shadow: 1px 1px 3px #c5c5c5,
+    -1px -1px 3px #ffffff;
+
+    color: grey;
+  }
 }
