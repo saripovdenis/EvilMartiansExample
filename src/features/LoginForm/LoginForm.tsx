@@ -12,9 +12,13 @@ export const LoginForm: FC = () => {
   return (
     <div className={styles.root}>
       <form className={styles.form} onSubmit={handleSubmitFn}>
-        <h1 className={styles.header}>Sign in</h1>
-        <Input />
-        <Input />
+        <div className={styles.topContainer}>
+          <h1 className={styles.header}>Sign in</h1>
+          <div className={styles.inputContainer}>
+            <Input placeholder="Email" />
+            <Input placeholder="Password" />
+          </div>
+        </div>
         <Button text="login" className={styles.button} />
       </form>
     </div>
