@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Input, Button } from "@shared/ui";
+import { hasDigit, email } from "@shared/utils/validation/regexp";
 
 import styles from "./LoginForm.module.scss";
 
@@ -42,7 +43,7 @@ export const LoginForm: FC = () => {
                   message: "This field is required",
                 },
                 pattern: {
-                  value: /^\S+@\S+\.\S+$/,
+                  value: email,
                   message: "Incorrect email",
                 },
               })}
@@ -64,7 +65,7 @@ export const LoginForm: FC = () => {
                   message: "Password must contain at least 8 characters",
                 },
                 pattern: {
-                  value: /\d/,
+                  value: hasDigit,
                   message:
                     "The string must contain at least 1 numeric character",
                 },
