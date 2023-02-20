@@ -1,0 +1,21 @@
+.loader {
+  width: 20px;
+  height: 20px;
+}
+.loader path {
+  fill: #000;
+  transform-origin: center;
+  animation: rotate 0.75s linear infinite;
+}
+.loaderReverse {
+  animation-direction: reverse !important;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+  from {
+    transform: rotate(0deg);
+  }
+}

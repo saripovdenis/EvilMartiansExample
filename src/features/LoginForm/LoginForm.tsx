@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Input, Button } from "@shared/ui";
@@ -11,6 +11,8 @@ type FormData = {
 };
 
 export const LoginForm: FC = () => {
+  const [loading, setLoading] = useState<boolean>(false);
+
   const {
     register,
     handleSubmit,
@@ -23,7 +25,8 @@ export const LoginForm: FC = () => {
   });
 
   const handleSubmitFn = (data: FormData) => {
-    alert(data);
+    setLoading(true);
+    console.log(data);
   };
 
   return (
@@ -43,7 +46,9 @@ export const LoginForm: FC = () => {
                   message: "Incorrect email",
                 },
               })}
+              autoComplete="email"
               label="Email"
+              disabled={loading}
               hasError={Boolean(errors.email)}
               errorText={errors.email?.message}
               placeholder="Email"
@@ -64,6 +69,8 @@ export const LoginForm: FC = () => {
                     "The string must contain at least 1 numeric character",
                 },
               })}
+              disabled={loading}
+              autoComplete="current-password"
               type="password"
               label="Password"
               hasError={Boolean(errors.password)}
@@ -74,6 +81,7 @@ export const LoginForm: FC = () => {
         </div>
         <Button
           disabled={!isDirty}
+          loading={loading}
           type="submit"
           text="login"
           className={styles.button}
