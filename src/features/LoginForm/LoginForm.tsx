@@ -1,10 +1,12 @@
 import React, { FC, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 import { Input, Button } from "@shared/ui";
 import { hasDigit, email } from "@shared/utils/validation/regexp";
 
 import styles from "./LoginForm.module.scss";
+import { useAuth } from "@shared/hooks/useAuth";
 
 type FormData = {
   email: string;
@@ -13,6 +15,8 @@ type FormData = {
 
 export const LoginForm: FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -27,7 +31,7 @@ export const LoginForm: FC = () => {
 
   const handleSubmitFn = (data: FormData) => {
     setLoading(true);
-    console.log(data);
+    signIn(data, () => navigate("/application"));
   };
 
   return (

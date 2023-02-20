@@ -19,7 +19,8 @@
     "paths": {
       "@pages": ["pages"],
       "@shared/*": ["shared/*"],
-      "@features/*": ["features/*"]
+      "@features/*": ["features/*"],
+      "@entities/*": ["entities/*"]
     }
   },
   "include": ["src"],
