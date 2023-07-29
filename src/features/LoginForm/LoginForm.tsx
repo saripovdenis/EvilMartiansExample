@@ -36,7 +36,7 @@ export const LoginForm: FC = () => {
 
   return (
     <div className={styles.root}>
-      <form className={styles.form} onSubmit={handleSubmit(handleSubmitFn)}>
+      <form className={styles.form} onSubmit={handleSubmit(handleSubmitFn)} noValidate={true}>
         <div className={styles.topContainer}>
           <h1 className={styles.header}>Sign in</h1>
           <div className={styles.inputContainer}>
@@ -53,6 +53,7 @@ export const LoginForm: FC = () => {
               })}
               autoComplete="email"
               label="Email"
+              type="email"
               disabled={loading}
               hasError={Boolean(errors.email)}
               errorText={errors.email?.message}

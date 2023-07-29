@@ -19,7 +19,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         <label htmlFor={id ?? generatedId} className={styles.label}>
           {label}
         </label>
-        <DryInput {...rest} id={id ?? generatedId} ref={ref} />
+        <DryInput {...rest} id={id ?? generatedId} ref={ref} aria-invalid={hasError} aria-errormessage={errorText} />
         {hasError && (
           <span role="alert" className={styles.errorText}>
             {errorText}
