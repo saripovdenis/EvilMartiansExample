@@ -56,7 +56,7 @@ export const LoginForm: FC = () => {
               disabled={loading}
               hasError={Boolean(errors.email)}
               errorText={errors.email?.message}
-              placeholder="Email"
+              placeholder="example@gmail.com"
             />
             <Input
               {...register("password", {
@@ -80,7 +80,7 @@ export const LoginForm: FC = () => {
               label="Password"
               hasError={Boolean(errors.password)}
               errorText={errors.password?.message}
-              placeholder="Password"
+              placeholder="********"
             />
           </div>
         </div>
