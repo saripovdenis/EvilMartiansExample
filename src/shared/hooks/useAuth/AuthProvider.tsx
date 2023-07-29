@@ -5,12 +5,12 @@ import { Credentials } from "@entities/auth";
 
 type AuthContext = {
   isAuth: boolean;
-  signIn: (credentials: Credentials, callback: VoidFunction) => void;
+  signIn: (credentials: Credentials) => Promise<null>;
 };
 
 export const AuthContext = createContext<AuthContext>({
   isAuth: false,
-  signIn: () => null,
+  signIn: () => Promise.resolve(null),
 });
 
 type Props = {
@@ -20,11 +20,9 @@ type Props = {
 export const AuthProvider: FC<Props> = ({ children }) => {
   const [isAuth, setIsAuth] = useState<boolean>(false);
 
-  const signIn = (credentials: Credentials, callback: VoidFunction) =>
+  const signIn = (credentials: Credentials) =>
     authProvider.signIn(() => {
-      console.log(credentials);
       setIsAuth(true);
-      callback();
     });
 
   return (

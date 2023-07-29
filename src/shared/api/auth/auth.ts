@@ -1,7 +1,18 @@
 export const authProvider = {
   isAuth: false,
-  signIn: (callback: VoidFunction) => {
+  count: 0,
+  signIn: async (callback: VoidFunction) => {
     authProvider.isAuth = true;
-    setTimeout(callback, 5 * 1000);
+    return await new Promise<null>((res, rej) =>
+      setTimeout(() => {
+        callback();
+        if (authProvider.count === 0) {
+          authProvider.count++;
+          rej(null);
+        } else {
+          res(null);
+        }
+      }, 5 * 1000)
+    );
   },
 };

@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import { Input, Button } from "@shared/ui";
+import { Input, Button, Alert } from "@shared/ui";
 import { hasDigit, email } from "@shared/utils/validation/regexp";
 
 import styles from "./LoginForm.module.scss";
@@ -15,6 +15,7 @@ type FormData = {
 
 export const LoginForm: FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
+  const [isServerError, setIsServerError] = useState(false);
   const { signIn } = useAuth();
   const navigate = useNavigate();
 
@@ -31,12 +32,22 @@ export const LoginForm: FC = () => {
 
   const handleSubmitFn = (data: FormData) => {
     setLoading(true);
-    signIn(data, () => navigate("/application"));
+    signIn(data)
+      .then(
+        () => navigate("/application"),
+        () => setIsServerError(true)
+      )
+      .finally(() => setLoading(false));
   };
 
   return (
     <div className={styles.root}>
-      <form className={styles.form} onSubmit={handleSubmit(handleSubmitFn)} noValidate={true}>
+      <form
+        className={styles.form}
+        onChange={() => setIsServerError(false)}
+        onSubmit={handleSubmit(handleSubmitFn)}
+        noValidate={true}
+      >
         <div className={styles.topContainer}>
           <h1 className={styles.header}>Sign in</h1>
           <div className={styles.inputContainer}>
@@ -83,6 +94,7 @@ export const LoginForm: FC = () => {
               errorText={errors.password?.message}
               placeholder="********"
             />
+            {isServerError && <Alert text="Server error" />}
           </div>
         </div>
         <Button
