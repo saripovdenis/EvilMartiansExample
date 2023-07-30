@@ -31,6 +31,7 @@ export const LoginForm: FC = () => {
   });
 
   const handleSubmitFn = (data: FormData) => {
+    setIsServerError(false);
     setLoading(true);
     signIn(data)
       .then(
