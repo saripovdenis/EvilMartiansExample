@@ -10,7 +10,7 @@ export function Alert(props: Props) {
   const { text } = props;
 
   return (
-    <div role="alert" className={styles.root}>
+    <div role="alert" aria-label={text} className={styles.root}>
       <span>{text}</span>
     </div>
   );
